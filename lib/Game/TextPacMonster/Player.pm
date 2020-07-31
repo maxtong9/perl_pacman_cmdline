@@ -19,10 +19,10 @@ sub _get_function {
 
     my %command_function_map = (
         '.' => 'stay',
-        'j' => 'move_down',
-        'k' => 'move_up',
-        'h' => 'move_left',
-        'l' => 'move_right',
+        's' => 'move_down',
+        'w' => 'move_up',
+        'a' => 'move_left',
+        'd' => 'move_right',
     );
 
     return 0 if ( !$command_function_map{$command} );

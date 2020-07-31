@@ -113,8 +113,19 @@ sub run {
     my $win_message = 'You win';
     my $message = 'You lose!!!'; # lose message default
 
+    # main game loop
+    # my $os = $^O;
+    my $isWindows = 0;
+    if ($^O eq "MSWin32"){
+        $isWindows = 1;
+    } 
     while (1) {
-	system('clear');
+    if ($isWindows){
+        system('cls');
+    } else {
+        system('clear');
+    }
+	
 
 	print $map->get_string ."\n";
 	print 'feed(s) left: ' . $map->count_feeds . "\n";
@@ -126,7 +137,7 @@ sub run {
 	    last;
 	}
 
-        print 'Your turn [k/j/h/l/.]: ';
+        print 'Your turn [w/a/s/d/.]: ';
 	$order = <STDIN>;
 	chomp $order;
 	$map->command_player($order);

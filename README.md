@@ -12,7 +12,7 @@ Game::TextPacMonster documentation is available as in POD. So you can do:
 
 to read the documentation online with your favorite pager.
 
-Takashi Uesugi
+Takashi Uesugi | Maxton Ginier
 
 # My Changes (maxtong9)
 * Optimized for windows10

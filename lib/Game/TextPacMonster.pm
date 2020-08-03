@@ -6,6 +6,7 @@ use utf8;
 use Carp;
 
 use Game::TextPacMonster::Map;
+use GameLib::Hotkey;
 
 our $VERSION = '0.03';
 
@@ -138,7 +139,15 @@ sub run {
 	}
 
         print 'Your turn [w/a/s/d/.]: ';
-	$order = <STDIN>;
+
+    if ($isWindows) {
+        # windows doesn't support posix
+        $order = <STDIN>;
+    } else {
+        # POSIX allows you to use the hotkey pm
+        $order = GameLib::HotKey::readkey();
+    }
+	
 	chomp $order;
 	$map->command_player($order);
     }
